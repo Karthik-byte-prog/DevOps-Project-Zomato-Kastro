@@ -41,7 +41,7 @@ pipeline {
         stage('OWASP FS SCAN') {
           steps {
                 dependencyCheck additionalArguments: '--scan . --disableAssembly',
-                    odcInstallation: 'dependency-check',
+                    odcInstallation: 'DP_check',
                     skipOnScmChange: false
            }
         }
