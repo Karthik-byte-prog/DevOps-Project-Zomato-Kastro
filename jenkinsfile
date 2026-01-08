@@ -33,10 +33,13 @@ pipeline {
                 }
             } 
         }
-        stage("Install NPM Dependencies") {
-            steps {
-                sh "npm install"
-            }
+        stage('Install Dependencies') {
+          steps {
+              sh '''
+                  export NODE_OPTIONS="--max-old-space-size=4096"
+                  npm install
+                '''
+             }
         }
         stage('OWASP FS SCAN') {
           steps {
